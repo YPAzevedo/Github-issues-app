@@ -52,6 +52,7 @@ export default class Main extends Component {
 
       const data = {
         name: response.data.full_name,
+        avatar: response.data.owner.avatar_url,
       };
 
       this.setState({
@@ -99,6 +100,7 @@ export default class Main extends Component {
         <List>
           {repos.map(repo => (
             <li key={repo.name}>
+              <img src={repo.avatar} alt={repo.name} />
               {repo.name}
               <Link to={`/repository/${encodeURIComponent(repo.name)}`}>
                 Details
